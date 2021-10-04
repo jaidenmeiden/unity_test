@@ -16,7 +16,13 @@ public class MainMenuController : MonoBehaviour {
     public GameObject GamePanel;
     public GameObject ControlsPanel;
     public GameObject GfxPanel;
-    public GameObject LoadGamePanel;
+    public GameObject IntensidadPanel;
+    public GameObject AusenciaPanel;
+    public GameObject TimepoPanel;
+    public GameObject AjustePanel;
+    public GameObject EspectroPanel;
+    public GameObject FrecuenciaPanel;
+    public GameObject FonemasPanel;
 
     // Use this for initialization
     void Start () {
@@ -68,10 +74,16 @@ public class MainMenuController : MonoBehaviour {
         GamePanel.SetActive(true);
         ControlsPanel.SetActive(false);
         GfxPanel.SetActive(false);
-        LoadGamePanel.SetActive(false);
+        IntensidadPanel.SetActive(false);
+        AusenciaPanel.SetActive(false);
+        TimepoPanel.SetActive(false);
+        AjustePanel.SetActive(false);
+        EspectroPanel.SetActive(false);
+        FrecuenciaPanel.SetActive(false);
+        FonemasPanel.SetActive(false);
 
-        //play anim for opening game options panel
-        anim.Play("OptTweenAnim_on");
+    //play anim for opening game options panel
+    anim.Play("OptTweenAnim_on");
 
         //play click sfx
         playClickSound();
@@ -83,7 +95,13 @@ public class MainMenuController : MonoBehaviour {
         GamePanel.SetActive(false);
         ControlsPanel.SetActive(true);
         GfxPanel.SetActive(false);
-        LoadGamePanel.SetActive(false);
+        IntensidadPanel.SetActive(false);
+        AusenciaPanel.SetActive(false);
+        TimepoPanel.SetActive(false);
+        AjustePanel.SetActive(false);
+        EspectroPanel.SetActive(false);
+        FrecuenciaPanel.SetActive(false);
+        FonemasPanel.SetActive(false);
 
         //play anim for opening game options panel
         anim.Play("OptTweenAnim_on");
@@ -98,7 +116,13 @@ public class MainMenuController : MonoBehaviour {
         GamePanel.SetActive(false);
         ControlsPanel.SetActive(false);
         GfxPanel.SetActive(true);
-        LoadGamePanel.SetActive(false);
+        IntensidadPanel.SetActive(false);
+        AusenciaPanel.SetActive(false);
+        TimepoPanel.SetActive(false);
+        AjustePanel.SetActive(false);
+        EspectroPanel.SetActive(false);
+        FrecuenciaPanel.SetActive(false);
+        FonemasPanel.SetActive(false);
 
         //play anim for opening game options panel
         anim.Play("OptTweenAnim_on");
@@ -108,13 +132,151 @@ public class MainMenuController : MonoBehaviour {
 
     }
 
-    public void openContinue_Load()
+    public void openMenu_intensidad()
     {
         //enable respective panel
         GamePanel.SetActive(false);
         ControlsPanel.SetActive(false);
         GfxPanel.SetActive(false);
-        LoadGamePanel.SetActive(true);
+        IntensidadPanel.SetActive(true);
+        AusenciaPanel.SetActive(false);
+        TimepoPanel.SetActive(false);
+        AjustePanel.SetActive(false);
+        EspectroPanel.SetActive(false);
+        FrecuenciaPanel.SetActive(false);
+        FonemasPanel.SetActive(false);
+
+        //play anim for opening game options panel
+        anim.Play("OptTweenAnim_on");
+
+        //play click sfx
+        playClickSound();
+
+    }
+
+    public void openMenu_ausencia()
+    {
+        //enable respective panel
+        GamePanel.SetActive(false);
+        ControlsPanel.SetActive(false);
+        GfxPanel.SetActive(false);
+        IntensidadPanel.SetActive(false);
+        AusenciaPanel.SetActive(true);
+        TimepoPanel.SetActive(false);
+        AjustePanel.SetActive(false);
+        EspectroPanel.SetActive(false);
+        FrecuenciaPanel.SetActive(false);
+        FonemasPanel.SetActive(false);
+
+        //play anim for opening game options panel
+        anim.Play("OptTweenAnim_on");
+
+        //play click sfx
+        playClickSound();
+
+    }
+
+    public void openMenu_tiempo()
+    {
+        //enable respective panel
+        GamePanel.SetActive(false);
+        ControlsPanel.SetActive(false);
+        GfxPanel.SetActive(false);
+        IntensidadPanel.SetActive(false);
+        AusenciaPanel.SetActive(false);
+        TimepoPanel.SetActive(true);
+        AjustePanel.SetActive(false);
+        EspectroPanel.SetActive(false);
+        FrecuenciaPanel.SetActive(false);
+        FonemasPanel.SetActive(false);
+
+        //play anim for opening game options panel
+        anim.Play("OptTweenAnim_on");
+
+        //play click sfx
+        playClickSound();
+
+    }
+
+    public void openMenu_ajuste()
+    {
+        //enable respective panel
+        GamePanel.SetActive(false);
+        ControlsPanel.SetActive(false);
+        GfxPanel.SetActive(false);
+        IntensidadPanel.SetActive(false);
+        AusenciaPanel.SetActive(false);
+        TimepoPanel.SetActive(false);
+        AjustePanel.SetActive(true);
+        EspectroPanel.SetActive(false);
+        FrecuenciaPanel.SetActive(false);
+        FonemasPanel.SetActive(false);
+
+        //play anim for opening game options panel
+        anim.Play("OptTweenAnim_on");
+
+        //play click sfx
+        playClickSound();
+
+    }
+
+    public void openMenu_espectro()
+    {
+        //enable respective panel
+        GamePanel.SetActive(false);
+        ControlsPanel.SetActive(false);
+        GfxPanel.SetActive(false);
+        IntensidadPanel.SetActive(false);
+        AusenciaPanel.SetActive(false);
+        TimepoPanel.SetActive(false);
+        AjustePanel.SetActive(false);
+        EspectroPanel.SetActive(true);
+        FrecuenciaPanel.SetActive(false);
+        FonemasPanel.SetActive(false);
+
+        //play anim for opening game options panel
+        anim.Play("OptTweenAnim_on");
+
+        //play click sfx
+        playClickSound();
+
+    }
+
+    public void openMenu_freciencia()
+    {
+        //enable respective panel
+        GamePanel.SetActive(false);
+        ControlsPanel.SetActive(false);
+        GfxPanel.SetActive(false);
+        IntensidadPanel.SetActive(false);
+        AusenciaPanel.SetActive(false);
+        TimepoPanel.SetActive(false);
+        AjustePanel.SetActive(false);
+        EspectroPanel.SetActive(false);
+        FrecuenciaPanel.SetActive(true);
+        FonemasPanel.SetActive(false);
+
+        //play anim for opening game options panel
+        anim.Play("OptTweenAnim_on");
+
+        //play click sfx
+        playClickSound();
+
+    }
+
+    public void openMenu_fonemas()
+    {
+        //enable respective panel
+        GamePanel.SetActive(false);
+        ControlsPanel.SetActive(false);
+        GfxPanel.SetActive(false);
+        IntensidadPanel.SetActive(false);
+        AusenciaPanel.SetActive(false);
+        TimepoPanel.SetActive(false);
+        AjustePanel.SetActive(false);
+        EspectroPanel.SetActive(false);
+        FrecuenciaPanel.SetActive(false);
+        FonemasPanel.SetActive(true);
 
         //play anim for opening game options panel
         anim.Play("OptTweenAnim_on");
