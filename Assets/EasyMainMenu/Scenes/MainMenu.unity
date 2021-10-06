@@ -9061,7 +9061,13 @@ MonoBehaviour:
   GamePanel: {fileID: 512787264}
   ControlsPanel: {fileID: 264990130}
   GfxPanel: {fileID: 1388274530}
-  LoadGamePanel: {fileID: 1412404851}
+  IntensidadPanel: {fileID: 0}
+  AusenciaPanel: {fileID: 0}
+  TimepoPanel: {fileID: 0}
+  AjustePanel: {fileID: 0}
+  EspectroPanel: {fileID: 0}
+  FrecuenciaPanel: {fileID: 0}
+  FonemasPanel: {fileID: 0}
 --- !u!95 &1375287391
 Animator:
   serializedVersion: 3
@@ -11138,7 +11144,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: empty
+  m_Text: Globos
 --- !u!222 &1703002974
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13411,7 +13417,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: empty
+  m_Text: Grises
 --- !u!222 &1937794632
 CanvasRenderer:
   m_ObjectHideFlags: 0
