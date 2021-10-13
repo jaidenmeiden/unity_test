@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI; //Jaiden addition
 
 #pragma warning disable 618
 namespace UnityStandardAssets.Utility
@@ -8,7 +9,8 @@ namespace UnityStandardAssets.Utility
     {
         // An incredibly simple menu which, when given references
         // to gameobjects in the scene
-        public GUIText camSwitchButton;
+        // public GUIText camSwitchButton;
+        public Text camSwitchButton;  //Jaiden addition
         public GameObject[] objects;
 
 
