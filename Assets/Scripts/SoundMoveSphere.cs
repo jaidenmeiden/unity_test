@@ -1,52 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundMoveSphere : MonoBehaviour
 {
-//    public float sensitivity = 100;
-//    public float loudness = 0;
-    public float speed = .1f;
-    AudioSource _audio;
+    public AudioSource audioSource;
+    public float updateStep = 0.1f;
+    public int sampleDataLenght = 1024;
 
-    // Start is called before the first frame update
-    void Start()
+    private float currentUpdateTime = 0f;
+
+    public float clipLoudness;
+    public float[] clipSampleData;
+
+    public GameObject sphere;
+    public float sizeFactor = 1;
+
+    public float minSize = 500;
+    public float maxSize = 1000;
+
+    private void Awake()
     {
-//        _audio = GetComponent<AudioSource>();
-//        _audio.clip = Microphone.Start(null, true, 10, 44100);
-//        _audio.loop = true;
-//        _audio.mute = true;
-//        while (!(Microphone.GetPosition(null) > 0))
-//        {
-
-//        }
-//        _audio.Play();
+        clipSampleData = new float[sampleDataLenght];
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-            float xDir = Input.GetAxis("Horizontal");
-            float zDir = Input.GetAxis("Vertical");
-
-            Vector3 moveDirection = new Vector3(xDir, 0.0f, zDir);
-
-            transform.position += moveDirection * speed;
-//        loudness = GetAverageVolume() * sensitivity;
-//        if (loudness > 8)
-//            this.GetComponent<Rigidbody>().velocity = new Vector2(this.GetComponent<Rigidbody>().velocity.x, 4);
-    }
-    //
-    float GetAverageVolume()
-    {
-        float[] data = new float[256];
-        float a = 0;
-        _audio.GetOutputData(data, 0);
-        foreach (float s in data)
+        currentUpdateTime += Time.deltaTime;
+        if (currentUpdateTime >= updateStep)
         {
-            a += Mathf.Abs(s);
+            currentUpdateTime = 0f;
+            audioSource.clip.GetData(clipSampleData, audioSource.timeSamples);
+            clipLoudness = 0f;
+            foreach (var sample in clipSampleData)
+            {
+                clipLoudness += Mathf.Abs(sample);
+            }
+            clipLoudness /= sampleDataLenght;
+            clipLoudness *= sizeFactor;
+            clipLoudness = Mathf.Clamp(clipLoudness, minSize, maxSize);
+            sphere.transform.localScale = new Vector3(clipLoudness, clipLoudness, clipLoudness);
         }
-
-        return a / 256;
     }
 }
