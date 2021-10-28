@@ -14,8 +14,8 @@ public class SoundMoveSphere : MonoBehaviour
     public GameObject sphere;
     public float sizeFactor = 1;
 
-    public float minSize = 500;
-    public float maxSize = 1000;
+    public float minSize = 0;
+    public float maxSize = 500;
 
     private void Awake()
     {
@@ -36,7 +36,7 @@ public class SoundMoveSphere : MonoBehaviour
             }
             clipLoudness /= sampleDataLenght;
             clipLoudness *= sizeFactor;
-            clipLoudness = Mathf.Clamp(clipLoudness, minSize, maxSize);
+            clipLoudness = 1 + Mathf.Clamp(clipLoudness, minSize, maxSize);
             sphere.transform.localScale = new Vector3(clipLoudness, clipLoudness, clipLoudness);
         }
     }
