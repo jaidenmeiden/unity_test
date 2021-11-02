@@ -4,18 +4,36 @@ using UnityEngine;
 
 public class MultiplyBalloons : MonoBehaviour
 {
-    public GameObject sphere;
+    public GameObject BlueSphere;
+    public GameObject GreenSphere;
+    public GameObject OrangeSphere;
+    public GameObject PinkSphere;
+    public GameObject RedSphere;
+    public GameObject YellowSphere;
     public GameObject container;
     void Start()
     {
-        CreateSphere(5);
+        CreateSphere(500, BlueSphere);
+        CreateSphere(500, GreenSphere);
+        CreateSphere(500, OrangeSphere);
+        CreateSphere(500, PinkSphere);
+        CreateSphere(500, RedSphere);
+        CreateSphere(500, YellowSphere);
     }
     
-    void CreateSphere(int qty)
+    void CreateSphere(int qty, GameObject sphere)
     {
         for (int i = 1; i <= qty; i++)
         {
-            GameObject sphereClone = Instantiate(sphere,new Vector3(i * 0.6f, sphere.transform.position.y, i * 0.75f), sphere.transform.rotation);
+            Vector3 position;
+            Collider[] hitColliders;
+            do
+            {
+                position = new Vector3(Random.Range(-70, 70), Random.Range(1, 10), Random.Range(-70, 70));
+                hitColliders = Physics.OverlapSphere(position, 1.0f);
+            } while (hitColliders.Length > 0);
+            
+            GameObject sphereClone = Instantiate(sphere, position, sphere.transform.rotation);
             sphereClone.transform.parent = container.transform;
             sphereClone.name = "Sphere" + i;
         }
