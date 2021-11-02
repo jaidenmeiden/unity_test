@@ -29,7 +29,7 @@ public class MultiplyBalloons : MonoBehaviour
             Collider[] hitColliders;
             do
             {
-                position = new Vector3(Random.Range(-70, 70), Random.Range(1, 10), Random.Range(-70, 70));
+                position = new Vector3(Random.Range(-70, 70), Random.Range(0.1f, 7), Random.Range(-70, 70));
                 hitColliders = Physics.OverlapSphere(position, 1.0f);
             } while (hitColliders.Length > 0);
             
