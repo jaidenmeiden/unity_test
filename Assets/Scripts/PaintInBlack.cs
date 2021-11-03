@@ -9,7 +9,7 @@ public class PaintInBlack : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Hello: " + gameObject.name);
+        //Debug.Log("Hello: " + gameObject.name);
 
         Transform[] allChildren = House.GetComponentsInChildren<Transform>();
         foreach (Transform child in allChildren)
@@ -31,41 +31,27 @@ public class PaintInBlack : MonoBehaviour
 
             listGameObject.Add(new MaterialsListByGameObject(child.gameObject, child.transform.childCount, material));
         }
-
-        foreach (MaterialsListByGameObject gameChild in listGameObject)
-        {
-            
-            Debug.Log(gameChild.PuzzleTab.name);
-            Debug.Log("<color=blue>Children: </color>" + gameChild.Children);
-            Debug.Log("<color=green>Material count: </color>" + gameChild.MaterialList.Count);
-            foreach (Material mat in gameChild.MaterialList)
-            {
-                Debug.Log("<color=red>Material: </color>" + mat.name);
-                //mat.color = Color.white;
-            }
-        }
-
-        /*MeshRenderer my_renderer = House.GetComponent<MeshRenderer>();
-        if ( my_renderer != null )
-        {
-            my_renderer.material = ;
-        }*/
     }
     void Update()
     {
         
     }
 
-    void MyGameMethod()
+    void voiceRecoverColor()
     {
-        // Message with a GameObject name.
-        //Debug.Log("Hello: " + gameObject.name);
-
-        // Message with light type. This is an Object example.
-        //Debug.Log(light.type);
-
-        // Message using rich text.
-        Debug.Log("<color=red>Error: </color>AssetBundle not found");
+        //Pendiente determinar cuales son los objetos cercanos en un radio X
+        
+        foreach (MaterialsListByGameObject gameChild in listGameObject)
+        {
+            Debug.Log(gameChild.PuzzleTab.name);
+            Debug.Log("<color=blue>Children: </color>" + gameChild.Children);
+            Debug.Log("<color=green>Material count: </color>" + gameChild.MaterialList.Count);
+            foreach (Material mat in gameChild.MaterialList)
+            {
+                Debug.Log("<color=red>Material: </color>" + mat.name);
+                mat.color = Color.white;
+            }
+        }
     }
 }
 
