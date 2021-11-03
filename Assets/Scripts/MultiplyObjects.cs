@@ -11,27 +11,44 @@ public class MultiplyObjects : MonoBehaviour
     public GameObject container;
     void Start()
     {
-        CreateSphere(1000, Cube);
-        CreateSphere(1000, Sphere);
-        CreateSphere(1000, Capsule);
-        CreateSphere(1000, Cylinder);
+        int min = 30;
+        int max = 1000;
+        CreateSphere(min, max, Cube);
+        CreateSphere(min, max, Sphere);
+        CreateSphere(min, max, Capsule);
+        CreateSphere(min, max, Cylinder);
     }
     
-    void CreateSphere(int qty, GameObject sphere)
+    void CreateSphere(int min, int max, GameObject figure)
     {
-        for (int i = 1; i <= qty; i++)
+        for (int i = 1; i <= min; i++)
         {
             Vector3 position;
             Collider[] hitColliders;
             do
             {
-                position = new Vector3(Random.Range(-200, 200), Random.Range(0.1f, 7), Random.Range(-200, 200));
+                position = new Vector3(Random.Range(-10, 10), Random.Range(0.1f, 2), Random.Range(-15, 15));
                 hitColliders = Physics.OverlapSphere(position, 0.5f);
             } while (hitColliders.Length > 0);
-            
-            GameObject sphereClone = Instantiate(sphere, position, sphere.transform.rotation);
+
+            GameObject sphereClone = Instantiate(figure, position, figure.transform.rotation);
             sphereClone.transform.parent = container.transform;
-            sphereClone.name = "Sphere" + i;
+            sphereClone.name = figure.name + i;
+        }
+        
+        for (int i = 1; i <= max; i++)
+        {
+            Vector3 position;
+            Collider[] hitColliders;
+            do
+            {
+                position = new Vector3(Random.Range(-200, 200), Random.Range(0.1f, 3), Random.Range(-200, 200));
+                hitColliders = Physics.OverlapSphere(position, 1.0f);
+            } while (hitColliders.Length > 0);
+            
+            GameObject sphereClone = Instantiate(figure, position, figure.transform.rotation);
+            sphereClone.transform.parent = container.transform;
+            sphereClone.name = figure.name + (i + min);
         }
     }
 }
