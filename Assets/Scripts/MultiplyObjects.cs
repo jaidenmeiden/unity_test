@@ -46,7 +46,7 @@ public class MultiplyObjects : MonoBehaviour
                 hitColliders = Physics.OverlapSphere(position, 1.0f);
             } while (hitColliders.Length > 0);
             
-            GameObject sphereClone = Instantiate(figure, position, figure.transform.rotation);
+            GameObject sphereClone = Instantiate(figure, position, Random.rotation);
             sphereClone.transform.parent = container.transform;
             sphereClone.name = figure.name + (i + min);
         }
