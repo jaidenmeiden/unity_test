@@ -28,7 +28,7 @@ public class MultiplyGhosts : MonoBehaviour
                 hitColliders = Physics.OverlapSphere(position, 1.0f);
             } while (hitColliders.Length > 0);
             
-            GameObject sphereClone = Instantiate(ghost, position, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+            GameObject sphereClone = Instantiate(ghost, position, Quaternion.Euler(new Vector3(0, Random.Range(0, 330), 0)));
             sphereClone.transform.parent = container.transform;
             sphereClone.name = "Sphere" + i;
         }
